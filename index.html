@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome to RegainedMyWillTo.Live</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+    <script src="script.js" defer></script> <!-- Link to JS file -->
 </head>
 <body>
 
@@ -24,18 +24,20 @@
             <h1>Welcome to RegainedMyWillTo.Live</h1>
             <p>Your ultimate Minecraft adventure starts here!</p>
             
-            <!-- Join Server Button (Copies IP & Shows Popup) -->
-            <button class="join-button" onclick="copyServerIP()">Survive and Thrive</button>
-
-            <!-- Popup Message -->
-            <div id="popup-message" class="popup">IP copied to clipboard: <span id="copied-ip"></span></div>
+            <!-- Join Server Button -->
+            <button id="join-server" class="join-button">Survive and Thrive</button>
         </header>
 
-        <!-- Server Status and Player List -->
+        <!-- Server Status -->
         <div class="server-status">
             <p>Server Status: <span id="server-status">Checking...</span></p>
             <p>Players Online: <span id="player-count">0</span></p>
-            <div id="player-list"></div>
+        </div>
+
+        <!-- Player List -->
+        <div class="player-list">
+            <h2>Players Online</h2>
+            <div id="players"></div>
         </div>
 
         <!-- News Ticker -->
