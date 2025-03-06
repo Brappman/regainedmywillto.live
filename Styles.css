@@ -11,22 +11,18 @@ body {
     color: white;
     background: linear-gradient(to bottom, #0b0c10, #1f2833);
     overflow-x: hidden;
-    height: 100vh;
-    margin: 0;
-    position: relative;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 /* Background Video */
 .background-video {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
     z-index: -1;
 }
 
@@ -38,79 +34,82 @@ body {
 
 /* Content Styling */
 .content {
-    position: relative;
-    z-index: 1;
+    flex: 1;
     text-align: center;
     padding: 50px;
-    color: white;
 }
 
-/* Join Button */
+/* Header */
+header {
+    margin-bottom: 30px;
+}
+
+/* Join Server Button */
 .join-button {
-    display: inline-block;
     padding: 15px 30px;
-    background: linear-gradient(90deg, #ff0000, #ff7300, #ff0, #0f0, #00f, #4b0082, #8a2be2);
-    background-size: 400%;
+    background-color: #4CAF50;
     color: white;
     font-size: 18px;
     font-weight: bold;
-    border: none;
+    text-decoration: none;
     border-radius: 10px;
-    transition: background-position 1s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     cursor: pointer;
+    border: none;
 }
 
 .join-button:hover {
-    background-position: 100%;
+    background-color: #45a049;
     transform: scale(1.05);
 }
 
-/* Popup Message */
-.popup {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
+/* Player List */
+.player-list {
+    margin-top: 20px;
     text-align: center;
-    animation: fadeOut 3s ease-in-out forwards;
 }
 
-/* Fade Out Animation */
-@keyframes fadeOut {
-    0% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; display: none; }
+.player-list img {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 5px;
 }
 
-/* Rainbow Social Buttons */
+/* News Ticker */
+.news-ticker {
+    margin-top: 20px;
+    background-color: #FFD700;
+    color: black;
+    padding: 10px;
+    font-weight: bold;
+    width: 100%;
+}
+
+/* Social Media Buttons (Rainbow Effect) */
+@keyframes rainbow {
+    0% { background: red; }
+    20% { background: orange; }
+    40% { background: yellow; }
+    60% { background: green; }
+    80% { background: blue; }
+    100% { background: violet; }
+}
+
 .social-btn {
-    display: inline-block;
     padding: 15px 30px;
     font-size: 1.2em;
+    color: white;
     text-decoration: none;
     border-radius: 5px;
-    color: white;
-    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-    background-size: 400%;
-    transition: background-position 1s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.social-btn:hover {
-    background-position: 100%;
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    display: inline-block;
+    animation: rainbow 5s infinite linear;
 }
 
 /* Footer */
 footer {
-    text-align: center;
-    padding: 15px;
     background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 10px;
     width: 100%;
 }
