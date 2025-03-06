@@ -1,19 +1,21 @@
-/* Reset basic styles */
+/* Reset styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* General Styles */
+/* Body */
 body {
     font-family: 'Arial', sans-serif;
     color: white;
-    background: linear-gradient(to bottom, #0b0c10, #1f2833);
-    overflow-x: hidden;
+    background: #1f1f1f;
+    text-align: center;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Background Video */
@@ -32,19 +34,23 @@ body {
     height: 100%;
 }
 
-/* Content Styling */
+/* Main Content */
 .content {
-    flex: 1;
-    text-align: center;
-    padding: 50px;
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
 }
 
 /* Header */
-header {
-    margin-bottom: 30px;
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
 }
 
-/* Join Server Button */
+/* Button Styling */
 .join-button {
     padding: 15px 30px;
     background-color: #4CAF50;
@@ -56,6 +62,7 @@ header {
     transition: background-color 0.3s ease, transform 0.2s ease;
     cursor: pointer;
     border: none;
+    margin-top: 10px;
 }
 
 .join-button:hover {
@@ -66,7 +73,6 @@ header {
 /* Player List */
 .player-list {
     margin-top: 20px;
-    text-align: center;
 }
 
 .player-list img {
@@ -108,8 +114,10 @@ header {
 
 /* Footer */
 footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
     padding: 10px;
-    width: 100%;
 }
