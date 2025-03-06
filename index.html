@@ -5,18 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome to RegainedMyWillTo.Live</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-    <!-- Moving Background Section -->
-    <div class="background"></div>
+    <!-- Video Background -->
+    <div class="background-video">
+        <video autoplay muted loop id="bg-video">
+            <source src="videos/background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
+    <!-- Main Content -->
     <div class="content">
         <header>
             <h1>Welcome to RegainedMyWillTo.Live</h1>
             <p>Your ultimate Minecraft adventure starts here!</p>
+            
+            <!-- Join Server Button (Copies IP & Shows Popup) -->
+            <button class="join-button" onclick="copyServerIP()">Survive and Thrive</button>
+
+            <!-- Popup Message -->
+            <div id="popup-message" class="popup">IP copied to clipboard: <span id="copied-ip"></span></div>
         </header>
+
+        <!-- Server Status and Player List -->
+        <div class="server-status">
+            <p>Server Status: <span id="server-status">Checking...</span></p>
+            <p>Players Online: <span id="player-count">0</span></p>
+            <div id="player-list"></div>
+        </div>
+
+        <!-- News Ticker -->
+        <div class="news-ticker">
+            <span>Latest Minecraft Updates: New caves & cliffs update released! More biomes coming soon!</span>
+        </div>
 
         <!-- Social Media Links -->
         <section class="social-links">
@@ -30,10 +55,10 @@
         </section>
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 RegainedMyWillTo.Live | All Rights Reserved</p>
     </footer>
 
-    <script src="script.js"></script> <!-- Link to JS file -->
 </body>
 </html>
