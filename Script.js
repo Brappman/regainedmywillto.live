@@ -10,11 +10,22 @@ async function fetchServerStatus() {
         if (data.online) {
             document.getElementById("server-status").textContent = "Online ✅";
             document.getElementById("player-count").textContent = data.players.online;
-            updatePlayerList(data.players.list);
+
+            // Show player list with avatars
+            let playerList = document.getElementById("player-list");
+            playerList.innerHTML = "";
+            if (data.players.list) {
+                data.players.list.forEach(player => {
+                    let playerDiv = document.createElement("div");
+                    playerDiv.classList.add("player");
+                    playerDiv.innerHTML = `<img src="https://minotar.net/helm/${player}/40.png" alt="${player}"> ${player}`;
+                    playerList.appendChild(playerDiv);
+                });
+            }
         } else {
             document.getElementById("server-status").textContent = "Offline ❌";
             document.getElementById("player-count").textContent = "0";
-            document.getElementById("players").innerHTML = "<p>No players online</p>";
+            document.getElementById("player-list").innerHTML = "";
         }
     } catch (error) {
         console.error("Error fetching server status:", error);
@@ -23,31 +34,16 @@ async function fetchServerStatus() {
     }
 }
 
-// Update Player List
-function updatePlayerList(players) {
-    const playerContainer = document.getElementById("players");
-    playerContainer.innerHTML = "";
-
-    if (players && players.length > 0) {
-        players.forEach(player => {
-            const playerImg = document.createElement("img");
-            playerImg.src = `https://minotar.net/avatar/${player}/50`;
-            playerImg.alt = player;
-            playerContainer.appendChild(playerImg);
-        });
-    } else {
-        playerContainer.innerHTML = "<p>No players online</p>";
-    }
-}
-
-// Copy Server IP when clicking "Survive and Thrive" button
-document.getElementById("join-server").addEventListener("click", () => {
-    const ip = `${SERVER_IP}:${SERVER_PORT}`;
-    navigator.clipboard.writeText(ip).then(() => {
-        alert(`Server IP copied: ${ip}`);
-    });
-});
-
 // Refresh server status every 30 seconds
 setInterval(fetchServerStatus, 30000);
 fetchServerStatus();
+
+// Copy server IP when clicking the button
+document.getElementById("join-server").addEventListener("click", () => {
+    const serverIP = `${SERVER_IP}:${SERVER_PORT}`;
+    navigator.clipboard.writeText(serverIP).then(() => {
+        alert(`Server IP copied to clipboard: ${serverIP}`);
+    }).catch(err => {
+        console.error("Failed to copy:", err);
+    });
+});
